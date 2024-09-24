@@ -16,3 +16,6 @@ def predict():
     features = [np.array(float_features)]
     prediction = model.predict(features)
     return render_template("index.html", prediction_text="The Predicted Crop is {}".format(prediction[0]))
+
+if __name__ == "__main__":
+    flask_app.run(debug=True)
