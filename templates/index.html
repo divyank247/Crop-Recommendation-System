@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>Crop Recommendation System</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+  <style>
+
+  </style>
+</head>
+
+<body>
+  <div class="login">
+    <h1>Crop Recommendation Model</h1>
+
+    <form action="{{ url_for('predict')}}" method="post">
+      <input type="text" name="Nitrogen" placeholder="Nitrogen (in kg/ha)" required="required" />
+      <input type="text" name="Phosphorus" placeholder="Phosphorus (in kg/ha)" required="required" />
+      <input type="text" name="Potassium" placeholder="Potassium (in kg/ha)" required="required" />
+      <input type="text" name="temperature" placeholder="temperature (in Celsius)" required="required" />
+      <input type="text" name="humidity" placeholder="humidity (in %)" required="required" />
+      <input type="text" name="pH" placeholder="pH value of soil" required="required" />
+      <input type="text" name="rainfall" placeholder="rainfall (in mm)" required="required" />
+
+      <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+    </form>
+
+    <br>
+    <br>
+    <h1 id="predi">
+      {{ prediction_text }}
+    </h1>
+
+  </div>
+
+
+</body>
+
+</html>
